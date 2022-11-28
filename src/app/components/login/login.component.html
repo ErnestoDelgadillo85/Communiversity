@@ -1,0 +1,17 @@
+<h2 class="text-center">Iniciar sesión</h2>
+<form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="">
+    <mdb-form-control class="mb-4">
+        <input mdbInput type="text" id="form1" class="form-control" formControlName="email"/>
+        <label mdbLabel class="form-label" for="form1">Correo electrónico</label>
+        </mdb-form-control>
+        <mdb-form-control class="mb-4">
+        <input mdbInput type="text" id="form1" class="form-control" formControlName="password"/>
+        <label mdbLabel class="form-label" for="form1">Contraseña</label>
+        </mdb-form-control>
+    <input type="submit" value="Iniciar sesión" class="btn btn-primary btn-block btn-lg mb-4">
+</form>
+<div class="text-center">
+    <button class="btn btn-link" (click)="onClick()">
+        <i class="fab fa-google me-2"></i> Iniciar sesión con Google
+    </button>
+</div>

@@ -1,0 +1,14 @@
+<div class="places">
+    <div class="place card mb-3" *ngFor="let post of posts">
+        <div class="info card-body">
+            <h4 class="card-title">{{post.title}}</h4>
+            <small class="card-subtitle text-muted">{{post.date}}</small>
+            <div class="card-text">
+                <p>{{post.description}}</p>
+            </div>
+            <button class="btn btn-danger" *ngIf="post.authorId === userService.getUserId()" (click)="onClickDelete(post)">
+                <i class="bi bi-trash-fill" aria-label="Borrar"></i> Eliminar
+            </button>
+        </div>
+    </div>
+</div>

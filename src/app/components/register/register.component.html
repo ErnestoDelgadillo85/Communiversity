@@ -1,0 +1,13 @@
+<h2 class="text-center">Registrarse</h2>
+<form [formGroup]="formReg" (ngSubmit)="onSubmit()">
+    <mdb-form-control class="mb-4">
+        <input mdbInput type="text" id="form1" class="form-control" formControlName="email"/>
+        <label mdbLabel class="form-label" for="form1">Correo electrónico</label>
+        </mdb-form-control>
+        <mdb-form-control class="mb-4">
+        <input mdbInput type="text" id="form1" class="form-control" formControlName="password"/>
+        <label mdbLabel class="form-label" for="form1">Contraseña</label>
+        </mdb-form-control>
+    <input type="submit" value="Registrar" class="btn btn-primary btn-lg btn-block">
+</form>
+
