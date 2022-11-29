@@ -1,13 +1,21 @@
 <h2 class="text-center">Iniciar sesión</h2>
 <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="">
-    <mdb-form-control class="mb-4">
-        <input mdbInput type="text" id="form1" class="form-control" formControlName="email"/>
+    <mdb-form-control class="mb-3" [class.mb-5]="loginEmail?.invalid && loginEmail?.touched">
+        <input mdbInput mdbValidate type="text" id="form1" class="form-control" formControlName="email"/>
         <label mdbLabel class="form-label" for="form1">Correo electrónico</label>
-        </mdb-form-control>
-        <mdb-form-control class="mb-4">
-        <input mdbInput type="text" id="form1" class="form-control" formControlName="password"/>
+        <div *ngIf="(loginEmail?.invalid && loginEmail?.touched) || loginEmail?.dirty">
+            <mdb-error *ngIf="loginEmail?.errors?.['required']">Correo electrónico requerido</mdb-error>
+            <mdb-error *ngIf="loginEmail?.errors?.['pattern']">Correo electrónico no válido</mdb-error>
+        </div>
+    </mdb-form-control >
+        
+    <mdb-form-control class="mb-3" [class.mb-5]="loginPassword?.invalid && loginPassword?.touched">
+        <input mdbInput mdbValidate type="password" id="form1" class="form-control" formControlName="password"/>
         <label mdbLabel class="form-label" for="form1">Contraseña</label>
-        </mdb-form-control>
+        <div *ngIf="(loginPassword?.invalid && loginPassword?.touched) || loginPassword?.dirty">
+            <mdb-error *ngIf="loginPassword?.errors?.['required']">Contraseña requerida</mdb-error>
+        </div>
+    </mdb-form-control>
     <input type="submit" value="Iniciar sesión" class="btn btn-primary btn-block btn-lg mb-4">
 </form>
 <div class="text-center">

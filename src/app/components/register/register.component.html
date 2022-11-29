@@ -1,12 +1,20 @@
 <h2 class="text-center">Registrarse</h2>
 <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
-    <mdb-form-control class="mb-4">
-        <input mdbInput type="text" id="form1" class="form-control" formControlName="email"/>
+    <mdb-form-control class="mb-3" [class.mb-5]="regEmail?.invalid && regEmail?.touched">
+        <input mdbInput mdbValidate type="text" id="form1" class="form-control" formControlName="email"/>
         <label mdbLabel class="form-label" for="form1">Correo electrónico</label>
+        <div *ngIf="(regEmail?.invalid && regEmail?.touched) || regEmail?.dirty">
+            <mdb-error *ngIf="regEmail?.errors?.['required']">Correo electrónico requerido</mdb-error>
+            <mdb-error *ngIf="regEmail?.errors?.['pattern']">Correo electrónico no válido</mdb-error>
+        </div>
         </mdb-form-control>
-        <mdb-form-control class="mb-4">
-        <input mdbInput type="text" id="form1" class="form-control" formControlName="password"/>
+        <mdb-form-control class="mb-3" [class.mb-5]="regPassword?.invalid && regPassword?.touched">
+        <input mdbInput mdbValidate type="password" id="form1" class="form-control" formControlName="password"/>
         <label mdbLabel class="form-label" for="form1">Contraseña</label>
+        <div *ngIf="(regPassword?.invalid && regPassword?.touched) || regPassword?.dirty">
+            <mdb-error *ngIf="regPassword?.errors?.['required']">Contraseña requerida</mdb-error>
+            <mdb-error *ngIf="regPassword?.errors?.['pattern']">Contraseña debe tener al menos 6 caracteres</mdb-error>
+        </div>
         </mdb-form-control>
     <input type="submit" value="Registrar" class="btn btn-primary btn-lg btn-block">
 </form>
