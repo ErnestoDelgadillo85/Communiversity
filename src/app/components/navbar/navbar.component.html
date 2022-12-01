@@ -40,8 +40,11 @@
         <!-- Left links -->
   
         <div class="d-flex align-items-center">
-          <button type="button" class="btn btn-outline-danger px-3 me-2" (click)="onClick()">
-            Cerrar sesión
+          <div class="user-info me-3">
+            <i class="fas fa-user-alt me-2"></i>{{userService.getUserName()}}
+          </div>
+          <button type="button" class="btn btn-rounded btn-outline-danger px-3 me-2" (click)="onClick()">
+            <i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión
           </button>
         </div>
       </div>

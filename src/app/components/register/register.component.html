@@ -1,4 +1,4 @@
-<h2 class="text-center">Registrarse</h2>
+<h2 class="text-center mb-4">Registrarse</h2>
 <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
     <mdb-form-control class="mb-3" [class.mb-5]="regEmail?.invalid && regEmail?.touched">
         <input mdbInput mdbValidate type="text" id="form1" class="form-control" formControlName="email"/>

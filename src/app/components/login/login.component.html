@@ -1,4 +1,4 @@
-<h2 class="text-center">Iniciar sesión</h2>
+<h2 class="text-center mb-4">Iniciar sesión</h2>
 <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="">
     <mdb-form-control class="mb-3" [class.mb-5]="loginEmail?.invalid && loginEmail?.touched">
         <input mdbInput mdbValidate type="text" id="form1" class="form-control" formControlName="email"/>

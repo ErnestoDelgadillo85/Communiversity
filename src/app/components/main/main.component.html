@@ -2,16 +2,18 @@
 
 <div class="container page">
   <h1>Objetos perdidos</h1>
+  <button class="btn btn-lg btn-success btn-rounded mt-2" (click)="openModal()">
+    <i class="fas fa-plus me-2"></i>Reportar un objeto perdido
+  </button>
   <div class="row">
-    <div class="col">
-      <section class="form">
-        <app-new-post></app-new-post>
-      </section>
-    </div>
-    <div class="col">
-      <section class="list">
-        <app-post-list></app-post-list>
-      </section>
+    
+  <div class="main mt-4">
+      <div class="col">
+        <section class="list">
+          <h5>Publicaciones recientes</h5>
+          <app-post-list></app-post-list>
+        </section>
+      </div>
     </div>
   </div>
 </div>

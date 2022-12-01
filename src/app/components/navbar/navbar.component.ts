@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  constructor(private userService: UserService,
+  constructor(public userService: UserService,
     private router: Router){}
 
   onClick() {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-new-post',
@@ -13,7 +14,8 @@ export class NewPostComponent {
   formulario: FormGroup;
 
   constructor(private postService: PostService,
-    private userService: UserService) {
+    private userService: UserService,
+    public modalRef: MdbModalRef<NewPostComponent>) {
     this.formulario = new FormGroup({
       title: new FormControl('', Validators.required),
       description: new FormControl(),
@@ -25,7 +27,7 @@ export class NewPostComponent {
     let datos = {
       ...this.formulario.value,
       datetime: date,
-      date: date.toDateString(),
+      date: date.toLocaleDateString('es-MX'),
       author: this.userService.getUserName(),
       authorId: this.userService.getUserId()
     }

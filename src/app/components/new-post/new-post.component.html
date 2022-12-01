@@ -1,16 +1,22 @@
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Publicar un objeto perdido</h5>
-        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-                <label class="form-label">Titulo</label>
-                <input type="text" class="form-control" formControlName="title">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Descripción</label>
-                <textarea class="form-control" cols="30" rows="10" formControlName="description"></textarea>
-            </div>
-            <input type="submit" value="Publicar" class="btn btn-primary btn-block" [disabled]="!formulario.valid">
-        </form>
-    </div>
-</div>
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Reportar un objeto perdido</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label class="form-label">Titulo</label>
+            <input type="text" class="form-control" formControlName="title">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <textarea class="form-control" cols="30" rows="10" formControlName="description"></textarea>
+        </div>
+        <input type="submit" value="Publicar" class="btn btn-primary btn-block" [disabled]="!formulario.valid" (click)="modalRef.close()">
+    </form>
+  </div>
