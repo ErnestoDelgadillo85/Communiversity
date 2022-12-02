@@ -8,15 +8,29 @@
     ></button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <form [formGroup]="formulario" (ngSubmit)="uploadImage()">
+      <div class="mb-3">
+        <label class="form-label" for="customFile">Anexar imagen del objeto perdido</label>
+        <input type="file" class="form-control" id="customFile" (change)="chooseFile($event)" accept="image/png, image/jpeg, image/jpg, image/gif"/>
+        <div class="progress" *ngIf="progress">
+          <div
+            class="progress-bar"
+            role="progressbar"
+            [style.width.%]="progress"
+            aria-valuemin="0"
+            aria-valuemax="100">
+          </div>
+        </div>
+        <small *ngIf="progress">Subiendo imagen: {{progress}}%</small>
+      </div>
         <div class="mb-3">
-            <label class="form-label">Titulo</label>
+            <label class="form-label">Nombre del objeto perdido<span class="text-danger">*</span></label>
             <input type="text" class="form-control" formControlName="title">
         </div>
         <div class="mb-3">
-            <label class="form-label">Descripción</label>
+            <label class="form-label">Descripción del objeto perdido</label>
             <textarea class="form-control" cols="30" rows="10" formControlName="description"></textarea>
         </div>
-        <input type="submit" value="Publicar" class="btn btn-primary btn-block" [disabled]="!formulario.valid" (click)="modalRef.close()">
+        <input type="submit" value="Publicar" class="btn btn-primary btn-block" [disabled]="!formulario.valid || progress" >
     </form>
   </div>

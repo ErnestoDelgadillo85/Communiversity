@@ -38,6 +38,7 @@ import { PostListComponent } from './components/post-list/post-list.component';
 
 // Toastr
 import { ToastrModule } from 'ngx-toastr';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { ToastrModule } from 'ngx-toastr';
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]

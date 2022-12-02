@@ -6,4 +6,5 @@ export interface Post {
     date: string;
     author: string;
     authorId: string;
+    imageUrl: string;
 }
