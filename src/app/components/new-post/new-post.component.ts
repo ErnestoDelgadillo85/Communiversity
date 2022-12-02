@@ -42,29 +42,12 @@ export class NewPostComponent {
     }
   }
 
-  // async onSubmit() {
-  //   const date = new Date()
-  //   this.uploadImage();
-  //   let datos = {
-  //     ...this.formulario.value,
-  //     datetime: date,
-  //     date: date.toLocaleDateString('es-MX'),
-  //     author: this.userService.getUserName(),
-  //     authorId: this.userService.getUserId(),
-  //     imageUrl: this.fileURL
-  //   }
-  //   console.log(datos);
-  //   const response = await this.postService.addPost(datos);
-  //   console.log(response);
-  //   this.formulario.reset();
-  // }
-
   chooseFile(event: any) {
     this.file = event.target.files[0];
   }
 
   uploadImage() {
-    const storageRef = ref(this.storage, `images/${this.file.name}`);
+    const storageRef = ref(this.storage, `images/${(Math.random() * new Date().getTime()).toString(36).replace(/\./g, '')}`);
     const uploadTask = uploadBytesResumable(storageRef, this.file);
     uploadTask.on('state_changed',
     (snapshot) => {
@@ -89,6 +72,7 @@ export class NewPostComponent {
           console.log(response);
           this.formulario.reset();
           this.modalRef.close();
+          this.file = {};
         });
       });
       

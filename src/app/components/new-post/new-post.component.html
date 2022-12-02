@@ -31,6 +31,6 @@
             <label class="form-label">Descripción del objeto perdido</label>
             <textarea class="form-control" cols="30" rows="10" formControlName="description"></textarea>
         </div>
-        <input type="submit" value="Publicar" class="btn btn-primary btn-block" [disabled]="!formulario.valid || progress" >
+        <input type="submit" value="Publicar" class="btn btn-primary btn-block" [disabled]="!formulario.valid || progress || (file | keyvalue)?.length" >
     </form>
   </div>
